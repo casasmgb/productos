@@ -1,6 +1,6 @@
 'use strict';
 
-const debug = require('debug')('apostilla:app');
+const debug = require('debug')('base:app');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -11,7 +11,6 @@ const baseUsuarios = require('base-usuarios');
 const { errors, config } = require('common');
 const api = require('./api');
 const graphql = require('./graphql');
-
 const port = process.env.PORT || 3000;
 const app = asyncify(express());
 const server = http.createServer(app);
@@ -28,10 +27,10 @@ app.use(cors());
   services = Object.assign(services, usuarios.services);
 
   // Iniciando API-REST
-  app = await api(app, services, usuarios.api);
+  app = await api(app, services, [ usuarios.api ]);
 
   // Iniciando GRAPHQL
-  app = await graphql(app, services, usuarios.graphql);
+  app = await graphql(app, services, [ usuarios.graphql ]);
 
   // Express Error Handler
   app.use((err, req, res, next) => {

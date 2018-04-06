@@ -2,7 +2,7 @@
   "name": "application",
   "version": "1.0.0",
   "description": "Capa de aplicación",
-  "main": "index.js",
+  "main": "src/application/index.js",
   "scripts": {
     "start-dev": "DEBUG=base:* nodemon src/application/index",
     "dev": "DEBUG=base:* nodemon src/application/index",
@@ -12,17 +12,18 @@
   "keywords": [
     "Aplicación"
   ],
-  "author": "equipo G <eg@agetic.gob.bo>",
+  "author": "EG <eg@agetic.gob.bo>",
   "license": "MIT",
   "dependencies": {
-    "base-usuarios": "file:../base-usuarios",
+    "base-usuarios": "file:../productos-backend-ventas",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.2",
-    "common": "file:../common",
+    "common": "file:../productos-common",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-asyncify": "^1.0.0",
     "express-jwt": "^5.3.0",
+    "express-jwt-permissions": "^1.1.0",
     "graphql": "^0.13.1",
     "graphql-server-express": "^1.3.2",
     "graphql-tools": "^2.21.0"
